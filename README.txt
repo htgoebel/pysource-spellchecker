@@ -4,9 +4,9 @@
 pysource-spellchecker
 ==========================
 
--------------------------------------------------------------
-spellcheck strings and comments in Python source files
--------------------------------------------------------------
+---------------------------------------------------------------------
+Spellcheck strings and comments in Python source files using Enchant
+---------------------------------------------------------------------
 
 :Author:    Hartmut Goebel <h.goebel@crazy-compilers.com>
 :Version:   Version 0.1

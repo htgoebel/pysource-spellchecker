@@ -22,7 +22,7 @@ setup(
     # metadata for upload to PyPI
     author = "Hartmut Goebel",
     author_email = "h.goebel@crazy-compiler.com",
-    description = "spellcheck strings and comments in Python source files",
+    description = "Spellcheck strings and comments in Python source files using Enchant",
     long_description = __doc__,
     license = "GPL 3.0",
     keywords = "pdf poster",
