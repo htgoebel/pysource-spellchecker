@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """
-This is the docstring
+This file is part of pysource-spellchecker.
+
+This word should be in project.dict: ixelbrings
+This word should not be in project.dict: mixelmux
 """
 
 # this is a comment
