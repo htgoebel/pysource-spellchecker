@@ -23,6 +23,7 @@ class FixSpellcheck(fixer_base.BaseFix):
             corrected = spellchecker.check(intext)
             if corrected != intext:
                 setattr(node, name, corrected)
+                node.changed()
 
         if isinstance(node, Leaf):
             if node.prefix.strip():
