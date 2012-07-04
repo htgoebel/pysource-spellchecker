@@ -17,14 +17,15 @@ __licence__ = "GNU Public Licence v3 (GPLv3)"
 class FixSpellcheck(fixer_base.BaseFix):
 
     def match(self, node):
+
+        def check(node, name):
+            intext = getattr(node, name)
+            corrected = spellchecker.check(intext)
+            if corrected != intext:
+                setattr(node, name, corrected)
+
         if isinstance(node, Leaf):
             if node.prefix.strip():
-                corrected = spellchecker.check(node.prefix)
-                if corrected != node.prefix:
-                    node.prefix = corrected
-                    node.changed()
+                check(node, 'prefix')
             if node.type in (token.STRING, token.COMMENT):
-                corrected = spellchecker.check(node.value)
-                if corrected != node.value:
-                    node.value = corrected
-                    node.changed()
+                check(node, 'value')
