@@ -40,6 +40,16 @@ Mode of operation
   --command-line, --cmd-line, --interactive
                         interactively check the spelling on the command line
 
+How to handle changed files
+''''''''''''''''''''''''''''
+By default pysource-spellchecker writes back changed files without backup.
+Use this options to change this behaviour.
+
+  --no-write            Don't write back modified files
+  --diffs               Show diffs of the refactoring
+  --backups             Write backups for modified files
+
+
 
 Requirements and Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

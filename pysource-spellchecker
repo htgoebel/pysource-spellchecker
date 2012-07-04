@@ -17,7 +17,8 @@ class moo_LIST: pass
 class moo_CMDLINE: pass
 
 
-def main(language, files, pwl=None, mode_of_operation=moo_LIST):
+def main(language, files, pwl=None, mode_of_operation=moo_LIST,
+         writeback=True, show_diffs=False, backups=False):
     if mode_of_operation is moo_LIST:
         checker = spellmod.SpellChecker(language, pwl)
     elif mode_of_operation is moo_CMDLINE:
@@ -25,7 +26,15 @@ def main(language, files, pwl=None, mode_of_operation=moo_LIST):
     else:
         raise ValueError(mode_of_operation)
     pysourcespellchecker.fix_spellcheck.spellchecker = checker # :hack:
-    lib2to3.main.main('pysourcespellchecker', files)
+    args = []
+    if writeback:
+        args.append('--write')
+    if not show_diffs:
+        args.append('--no-diffs')
+    if not backups:
+        args.append('--nobackups')
+    args.extend(files)
+    lib2to3.main.main('pysourcespellchecker', args)
 
 
 if __name__ == '__main__':
@@ -36,6 +45,7 @@ if __name__ == '__main__':
                         help='personal wordlist to use, default: %(default)s')
     parser.add_argument('--no-pwl', action='store_false', dest='pwl',
                         help='do not use any personal wordlist.')
+
     group = parser.add_argument_group('Mode of operation')
     group.add_argument('--list', action='store_const', const=moo_LIST,
                        dest='mode_of_operation', default=moo_LIST,
@@ -44,6 +54,19 @@ if __name__ == '__main__':
                        action='store_const', const=moo_CMDLINE,
                        dest='mode_of_operation',
                        help='interactively check the spelling on the command line')
+
+    group = parser.add_argument_group(
+        'How to handle changed files',
+        'By default %(prog)s writes back changed files without backup. '
+        'Use this options to change this behaviour.')
+    group.add_argument('--no-write', action='store_false', dest='writeback',
+                       help="Don't write back modified files")
+    group.add_argument('--diffs', action='store_true', dest='show_diffs',
+                       help="Show diffs of the refactoring")
+    group.add_argument('--backups', action='store_true',
+                       help="Write backups for modified files")
+
+
     parser.add_argument('files', metavar='source-file', nargs='+')
     args = parser.parse_args()
     files = args.files
