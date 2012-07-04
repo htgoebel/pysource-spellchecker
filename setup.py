@@ -1,6 +1,6 @@
 """
 `pysource-spellchecker` extracts all strings (including unicode
-strings) and comments and passes them to the `enchant` spell checker.
+strings) and comments and passes them to the `enchant` spellchecker.
 """
 
 from setuptools import setup, find_packages

@@ -5,7 +5,7 @@ pysource-spellchecker
 ==========================
 
 -------------------------------------------------------------
-spell-checking strings and comments in Python source files
+spellcheck strings and comments in Python source files
 -------------------------------------------------------------
 
 :Author:    Hartmut Goebel <h.goebel@crazy-compilers.com>
@@ -16,7 +16,7 @@ spell-checking strings and comments in Python source files
 
 
 `pysource-spellchecker` extracts all strings (including unicode
-strings) and comments and passes them to the `enchant` spell checker.
+strings) and comments and passes them to the `enchant` spellchecker.
 
 
 Usage
@@ -29,7 +29,7 @@ Options
 --------------------
 
   -h, --help            show this help message and exit
-  --language LANGUAGE   language to use for spell-checking, default: en_US
+  --language LANGUAGE   language to use for spellchecking, default: en_US
   --pwl PWL             personal wordlist to use, default: project.dict
   --no-pwl              do not use any personal wordlist.
 
