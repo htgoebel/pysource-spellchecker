@@ -4,11 +4,6 @@ strings) and comments and passes them to the `enchant` spellchecker.
 """
 
 from setuptools import setup, find_packages
-additional_keywords ={}
-
-from distutils.core import Command
-from distutils import log
-import os
 
 setup(
     name = "pysource-spellchecker",
@@ -17,7 +12,6 @@ setup(
     install_requires = ['pyenchant'],
 
     packages=find_packages(exclude=['ez_setup']),
-
 
     # metadata for upload to PyPI
     author = "Hartmut Goebel",
