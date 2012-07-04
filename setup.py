@@ -19,7 +19,7 @@ setup(
     description = "Spellcheck strings and comments in Python source files using Enchant",
     long_description = __doc__,
     license = "GPL 3.0",
-    keywords = "pdf poster",
+    #keywords = "",
     url          = "https://github.com/htgoebel/pysource-spellchecker",
     download_url = "http://pypi.python.org/pypi/pysource-spellchecker",
     classifiers = [
