@@ -21,8 +21,6 @@ class SheBangFilter(Filter):
     This filter skips any words matching the following regular expression:
 
            ^#!/.+python.*$
-
-    That is, any words that resemble email addresses.
     """
     _pattern = re.compile(r"^#!/.+$")
     def _skip(self,word):
