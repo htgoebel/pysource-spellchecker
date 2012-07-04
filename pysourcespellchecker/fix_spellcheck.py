@@ -23,7 +23,7 @@ class FixSpellcheck(fixer_base.BaseFix):
                 if corrected != node.prefix:
                     node.prefix = corrected
                     node.changed()
-            elif node.type in (token.STRING, token.COMMENT):
+            if node.type in (token.STRING, token.COMMENT):
                 corrected = spellchecker.check(node.value)
                 if corrected != node.value:
                     node.value = corrected
